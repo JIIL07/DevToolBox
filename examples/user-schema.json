@@ -1,0 +1,22 @@
+{
+  "id": "int",
+  "username": "string",
+  "email": "string",
+  "password_hash": "string",
+  "first_name": "string",
+  "last_name": "string",
+  "avatar_url": "string",
+  "is_active": "bool",
+  "is_verified": "bool",
+  "created_at": "string",
+  "updated_at": "string",
+  "last_login": "string",
+  "preferences": {
+    "theme": "string",
+    "language": "string",
+    "notifications": "bool",
+    "email_notifications": "bool"
+  },
+  "roles": "array<string>",
+  "permissions": "array<string>"
+}

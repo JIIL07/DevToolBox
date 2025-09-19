@@ -1,0 +1,35 @@
+{
+  "app": {
+    "name": "string",
+    "version": "string",
+    "debug": "bool",
+    "port": "int"
+  },
+  "database": {
+    "host": "string",
+    "port": "int",
+    "name": "string",
+    "username": "string",
+    "password": "string",
+    "ssl": "bool",
+    "max_connections": "int"
+  },
+  "redis": {
+    "host": "string",
+    "port": "int",
+    "password": "string",
+    "db": "int"
+  },
+  "features": {
+    "analytics": "bool",
+    "notifications": "bool",
+    "caching": "bool",
+    "rate_limiting": "bool"
+  },
+  "logging": {
+    "level": "string",
+    "file": "string",
+    "max_size": "int",
+    "max_backups": "int"
+  }
+}

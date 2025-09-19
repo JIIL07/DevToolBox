@@ -1,0 +1,15 @@
+{
+  "tableName": "products",
+  "columns": {
+    "id": "int",
+    "name": "string",
+    "description": "string",
+    "price": "float",
+    "category_id": "int",
+    "in_stock": "bool",
+    "created_at": "string",
+    "updated_at": "string"
+  },
+  "indexes": "array<string>",
+  "constraints": "array<string>"
+}

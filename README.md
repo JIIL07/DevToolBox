@@ -2,7 +2,7 @@
 
 > Универсальный генератор кода для разработчиков
 
-[![Go Version](https://img.shields.io/badge/Go-1.21+-blue.svg)](https://golang.org/)
+[![Go Version](https://img.shields.io/badge/Go-1.23+-blue.svg)](https://golang.org/)
 [![Node.js Version](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Python Version](https://img.shields.io/badge/Python-3.8+-yellow.svg)](https://python.org/)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
@@ -236,6 +236,17 @@ make test-frontend
 make test-python
 ```
 
+## 📚 Documentation
+
+Comprehensive documentation is available in the `docs/` directory:
+
+- [🚀 Quick Start Guide](docs/quick-start.md) - Get up and running in 5 minutes
+- [📦 Installation Guide](docs/installation.md) - Detailed installation instructions
+- [👤 User Guide](docs/user-guide.md) - Complete user manual
+- [🔌 Plugins Guide](docs/plugins-guide.md) - Create and manage custom plugins
+- [📖 API Reference](docs/api-reference.md) - Complete API documentation
+- [🤝 Contributing Guide](docs/contributing.md) - How to contribute to the project
+
 ## 📁 Структура проекта
 
 ```
@@ -247,6 +258,13 @@ devtoolbox/
 │   ├── core/              # Ядро генератора
 │   ├── api/               # HTTP API handlers
 │   └── plugins/           # Загрузчики плагинов
+├── docs/                  # Документация
+│   ├── quick-start.md     # Быстрый старт
+│   ├── installation.md    # Руководство по установке
+│   ├── user-guide.md      # Руководство пользователя
+│   ├── plugins-guide.md   # Руководство по плагинам
+│   ├── api-reference.md   # Справочник API
+│   └── contributing.md    # Руководство по участию
 ├── frontend/              # React + TypeScript фронтенд
 ├── plugins/               # Плагины генерации
 │   ├── official/          # Официальные плагины
@@ -258,7 +276,7 @@ devtoolbox/
 
 ## 🤝 Contributing
 
-Мы приветствуем вклад в развитие проекта! Пожалуйста, ознакомьтесь с [руководством по участию](CONTRIBUTING.md).
+Мы приветствуем вклад в развитие проекта! Пожалуйста, ознакомьтесь с [руководством по участию](docs/contributing.md).
 
 ### Как внести вклад
 
@@ -285,10 +303,9 @@ devtoolbox/
 
 ## 📞 Support
 
-- 📧 Email: support@devtoolbox.dev
-- 💬 Discord: [DevToolBox Community](https://discord.gg/devtoolbox)
+- 📧 Email: romana9059@gmail.com
 - 🐛 Issues: [GitHub Issues](https://github.com/JIIL07/devtoolbox/issues)
-- 📖 Docs: [Documentation](https://docs.devtoolbox.dev)
+- 📖 Docs: [Documentation](docs/user-guide.md)
 
 ---
 

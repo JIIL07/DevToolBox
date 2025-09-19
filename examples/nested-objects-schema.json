@@ -1,0 +1,36 @@
+{
+  "company": {
+    "id": "int",
+    "name": "string",
+    "address": {
+      "street": "string",
+      "city": "string",
+      "country": "string",
+      "postal_code": "string"
+    },
+    "contact": {
+      "email": "string",
+      "phone": "string",
+      "website": "string"
+    }
+  },
+  "employees": "array<object>",
+  "departments": {
+    "engineering": {
+      "head": "string",
+      "size": "int",
+      "budget": "float"
+    },
+    "marketing": {
+      "head": "string",
+      "size": "int",
+      "budget": "float"
+    }
+  },
+  "settings": {
+    "timezone": "string",
+    "currency": "string",
+    "language": "string",
+    "features": "array<string>"
+  }
+}

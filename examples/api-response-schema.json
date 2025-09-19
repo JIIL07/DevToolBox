@@ -1,0 +1,12 @@
+{
+  "data": {
+    "users": "array<object>",
+    "total": "int",
+    "page": "int",
+    "limit": "int"
+  },
+  "status": "string",
+  "message": "string",
+  "timestamp": "string",
+  "request_id": "string"
+}
