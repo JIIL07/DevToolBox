@@ -59,6 +59,45 @@ make install-deps
 make build
 ```
 
+### Docker (Рекомендуется)
+
+#### Быстрый запуск для разработки
+
+```bash
+# Запуск всех сервисов
+make docker-dev-up
+
+# Или через скрипт
+bash scripts/start-dev.sh
+# или на Windows
+powershell -ExecutionPolicy Bypass -File scripts/start-dev.ps1
+```
+
+#### Продакшн развертывание
+
+```bash
+# Запуск продакшн версии
+make docker-up
+
+# Остановка
+make docker-down
+```
+
+#### Доступные сервисы
+
+- **Frontend**: http://localhost:3000 (dev) / http://localhost (prod)
+- **Backend API**: http://localhost:8080
+- **PostgreSQL**: localhost:5433 (dev) / localhost:5432 (prod)
+- **Redis**: localhost:6379
+
+#### Docker команды
+
+```bash
+make docker-build      # Собрать образы
+make docker-logs       # Показать логи
+make docker-clean      # Очистить все ресурсы
+```
+
 ## 🚀 Usage
 
 ### CLI

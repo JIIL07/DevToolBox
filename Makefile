@@ -100,15 +100,31 @@ clean: ## Очистить собранные файлы
 
 docker-up: ## Запустить все сервисы через Docker Compose
 	@echo "$(GREEN)Запуск Docker Compose...$(NC)"
-	@docker-compose -f configs/docker-compose.yml up -d
+	@docker-compose up -d
 
 docker-down: ## Остановить все сервисы Docker Compose
 	@echo "$(GREEN)Остановка Docker Compose...$(NC)"
-	@docker-compose -f configs/docker-compose.yml down
+	@docker-compose down
 
 docker-build: ## Собрать Docker образы
 	@echo "$(GREEN)Сборка Docker образов...$(NC)"
-	@docker-compose -f configs/docker-compose.yml build
+	@docker-compose build
+
+docker-dev-up: ## Запустить сервисы для разработки
+	@echo "$(GREEN)Запуск Docker Compose для разработки...$(NC)"
+	@docker-compose -f docker-compose.dev.yml up -d
+
+docker-dev-down: ## Остановить сервисы разработки
+	@echo "$(GREEN)Остановка Docker Compose для разработки...$(NC)"
+	@docker-compose -f docker-compose.dev.yml down
+
+docker-logs: ## Показать логи Docker контейнеров
+	@echo "$(GREEN)Логи Docker контейнеров...$(NC)"
+	@docker-compose logs -f
+
+docker-clean: ## Очистить Docker ресурсы
+	@echo "$(GREEN)Очистка Docker ресурсов...$(NC)"
+	@docker-compose down -v --rmi all
 
 release-build: ## Собрать релизные бинарники для всех платформ
 	@echo "$(GREEN)Сборка релизных бинарников...$(NC)"

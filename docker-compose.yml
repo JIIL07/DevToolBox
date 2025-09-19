@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: devtoolbox-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    volumes:
+      - ./plugins:/root/plugins:ro
+    networks:
+      - devtoolbox-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: devtoolbox-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - devtoolbox-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: devtoolbox-postgres
+    environment:
+      POSTGRES_DB: devtoolbox
+      POSTGRES_USER: devtoolbox
+      POSTGRES_PASSWORD: devtoolbox123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - devtoolbox-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: devtoolbox-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - devtoolbox-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  devtoolbox-network:
+    driver: bridge

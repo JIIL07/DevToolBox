@@ -33,7 +33,9 @@ func (p *PythonPlugin) GetDescription() string {
 func (p *PythonPlugin) Generate(input string) (string, error) {
 	var cmd *exec.Cmd
 	
-	if _, err := exec.LookPath("python3"); err == nil {
+	if _, err := exec.LookPath("/opt/venv/bin/python"); err == nil {
+		cmd = exec.Command("/opt/venv/bin/python", p.scriptPath)
+	} else if _, err := exec.LookPath("python3"); err == nil {
 		cmd = exec.Command("python3", p.scriptPath)
 	} else if _, err := exec.LookPath("python"); err == nil {
 		cmd = exec.Command("python", p.scriptPath)
