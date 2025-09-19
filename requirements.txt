@@ -1,3 +1,3 @@
 # Python dependencies for DevToolBox plugins
-# No external dependencies required for basic functionality
-# Future plugins may require additional packages
+pytest>=7.0.0
+pytest-cov>=4.0.0
