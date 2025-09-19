@@ -1,24 +1,23 @@
-#!/usr/bin/env python3
 import json
 import sys
-import re
-from typing import Any, Dict, List, Union
+
+from typing import Any, Dict, List
 
 
 def to_camel_case(snake_str: str) -> str:
-    """Convert snake_case to camelCase"""
+
     components = snake_str.split('_')
     return components[0] + ''.join(x.title() for x in components[1:])
 
 
 def to_pascal_case(snake_str: str) -> str:
-    """Convert snake_case to PascalCase"""
+
     components = snake_str.split('_')
     return ''.join(x.title() for x in components)
 
 
 def get_typescript_type(value: Any) -> str:
-    """Determine TypeScript type from Python value"""
+
     if value is None:
         return "any"
     elif isinstance(value, bool):
@@ -41,12 +40,12 @@ def get_typescript_type(value: Any) -> str:
 
 
 def generate_interface_name(key: str) -> str:
-    """Generate interface name from key"""
+
     return to_pascal_case(key)
 
 
 def generate_interface(data: Dict[str, Any], interface_name: str = "GeneratedInterface") -> str:
-    """Generate TypeScript interface from JSON data"""
+
     lines = [f"interface {interface_name} {{"]
     
     for key, value in data.items():
@@ -67,7 +66,7 @@ def generate_interface(data: Dict[str, Any], interface_name: str = "GeneratedInt
 
 
 def generate_nested_interfaces(data: Dict[str, Any], base_name: str = "GeneratedInterface") -> List[str]:
-    """Generate all nested interfaces"""
+
     interfaces = []
     
     for key, value in data.items():
@@ -91,7 +90,7 @@ def generate_nested_interfaces(data: Dict[str, Any], base_name: str = "Generated
 
 
 def generate(input_json: str) -> str:
-    """Main function to generate TypeScript interface from JSON string"""
+
     try:
         data = json.loads(input_json)
         

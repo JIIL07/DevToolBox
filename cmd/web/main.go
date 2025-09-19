@@ -4,9 +4,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/gin-gonic/gin"
 	"github.com/JIIL07/devtoolbox/internal/api"
 	"github.com/JIIL07/devtoolbox/internal/core"
+	"github.com/JIIL07/devtoolbox/internal/plugins"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -16,10 +17,22 @@ func main() {
 	}
 
 	registry := core.NewGeneratorRegistry()
+
+	pluginManager := plugins.NewPluginManager()
+	customPlugins, err := pluginManager.LoadPlugins()
+	if err == nil {
+		for _, pluginInfo := range customPlugins {
+			if pluginInfo.Type == "python" {
+				pythonPlugin := plugins.NewPythonPlugin(pluginInfo.Name, pluginInfo.Description, pluginInfo.Path)
+				registry.Register(pythonPlugin)
+			}
+		}
+	}
+
 	handler := api.NewHandler(registry)
 
 	router := gin.Default()
-	
+
 	router.Use(api.CORSMiddleware())
 	router.Use(api.Logger())
 
