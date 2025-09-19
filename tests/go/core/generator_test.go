@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yourname/devtoolbox/internal/core"
+	"github.com/JIIL07/devtoolbox/internal/core"
 )
 
 func TestGoStructGenerator_Generate(t *testing.T) {
