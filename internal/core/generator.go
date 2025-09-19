@@ -6,6 +6,8 @@ import (
 	"reflect"
 	"sort"
 	"strings"
+
+	"github.com/JIIL07/devtoolbox/internal/plugins"
 )
 
 type CodeGenerator interface {
@@ -191,6 +193,14 @@ func NewGeneratorRegistry() *GeneratorRegistry {
 	}
 	
 	registry.Register(NewGoStructGenerator())
+	
+	loader := plugins.NewPythonPluginLoader("plugins")
+	pythonPlugins, err := loader.LoadOfficialPlugins()
+	if err == nil {
+		for _, plugin := range pythonPlugins {
+			registry.Register(plugin)
+		}
+	}
 	
 	return registry
 }

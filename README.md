@@ -6,7 +6,7 @@
 [![Node.js Version](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Python Version](https://img.shields.io/badge/Python-3.8+-yellow.svg)](https://python.org/)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
-[![Build Status](https://github.com/yourname/devtoolbox/workflows/CI/badge.svg)](https://github.com/yourname/devtoolbox/actions)
+[![Build Status](https://github.com/JIIL07/devtoolbox/workflows/CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
 
 DevToolBox — это мощный инструмент для генерации кода из JSON-схем. Поддерживает множество языков программирования и форматов через систему плагинов.
 
@@ -34,19 +34,19 @@ DevToolBox — это мощный инструмент для генераци�
 ### Через Go (рекомендуется)
 
 ```bash
-go install github.com/yourname/devtoolbox/cmd/cli@latest
+go install github.com/JIIL07/devtoolbox/cmd/cli@latest
 ```
 
 ### Через Docker
 
 ```bash
-docker pull yourname/devtoolbox:latest
+docker pull jiil/devtoolbox:latest
 ```
 
 ### Сборка из исходников
 
 ```bash
-git clone https://github.com/yourname/devtoolbox.git
+git clone https://github.com/JIIL07/devtoolbox.git
 cd devtoolbox
 make install-deps
 make build
@@ -241,7 +241,7 @@ devtoolbox/
 
 - 📧 Email: support@devtoolbox.dev
 - 💬 Discord: [DevToolBox Community](https://discord.gg/devtoolbox)
-- 🐛 Issues: [GitHub Issues](https://github.com/yourname/devtoolbox/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/JIIL07/devtoolbox/issues)
 - 📖 Docs: [Documentation](https://docs.devtoolbox.dev)
 
 ---
