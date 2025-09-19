@@ -40,12 +40,10 @@ def get_typescript_type(value: Any) -> str:
 
 
 def generate_interface_name(key: str) -> str:
-
     return to_pascal_case(key)
 
 
 def generate_interface(data: Dict[str, Any], interface_name: str = "GeneratedInterface") -> str:
-
     lines = [f"interface {interface_name} {{"]
     
     for key, value in data.items():
@@ -66,7 +64,6 @@ def generate_interface(data: Dict[str, Any], interface_name: str = "GeneratedInt
 
 
 def generate_nested_interfaces(data: Dict[str, Any], base_name: str = "GeneratedInterface") -> List[str]:
-
     interfaces = []
     
     for key, value in data.items():
@@ -90,7 +87,6 @@ def generate_nested_interfaces(data: Dict[str, Any], base_name: str = "Generated
 
 
 def generate(input_json: str) -> str:
-
     try:
         data = json.loads(input_json)
         

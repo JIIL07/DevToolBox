@@ -6,7 +6,14 @@
 [![Node.js Version](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Python Version](https://img.shields.io/badge/Python-3.8+-yellow.svg)](https://python.org/)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
-[![Build Status](https://github.com/JIIL07/devtoolbox/workflows/CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
+
+[![CI](https://github.com/JIIL07/devtoolbox/workflows/CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
+[![Go CI](https://github.com/JIIL07/devtoolbox/workflows/Go%20CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
+[![Frontend CI](https://github.com/JIIL07/devtoolbox/workflows/Frontend%20CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
+[![Python CI](https://github.com/JIIL07/devtoolbox/workflows/Python%20CI/badge.svg)](https://github.com/JIIL07/devtoolbox/actions)
+
+[![codecov](https://codecov.io/gh/JIIL07/devtoolbox/branch/main/graph/badge.svg)](https://codecov.io/gh/JIIL07/devtoolbox)
+[![Go Report Card](https://goreportcard.com/badge/github.com/JIIL07/devtoolbox)](https://goreportcard.com/report/github.com/JIIL07/devtoolbox)
 
 DevToolBox — это мощный инструмент для генерации кода из JSON-схем. Поддерживает множество языков программирования и форматов через систему плагинов.
 

@@ -35,8 +35,24 @@ jobs:
     - name: Run tests
       run: go test ./... -v
     
-    - name: Build
-      run: go build ./cmd/web
+    - name: Run tests with coverage
+      run: go test ./... -coverprofile=coverage.out
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.out
+        flags: go
+        name: go-coverage
     
     - name: Build CLI
-      run: go build -o devtoolbox ./cmd/cli
+      run: go build -o bin/devtoolbox ./cmd/cli
+    
+    - name: Build Web Server
+      run: go build -o bin/devtoolbox-web ./cmd/web
+    
+    - name: Test CLI help
+      run: ./bin/devtoolbox --help
+    
+    - name: Test CLI plugin list
+      run: ./bin/devtoolbox plugin list

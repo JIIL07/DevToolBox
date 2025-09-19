@@ -10,7 +10,7 @@ describe('CodePreview', () => {
   });
 
   it('renders code when provided', () => {
-    const testCode = 'type Test struct {\n\tName string\n}';
+    const testCode = 'type Test struct { Name string }';
     render(<CodePreview code={testCode} />);
 
     expect(screen.getByText(testCode)).toBeInTheDocument();

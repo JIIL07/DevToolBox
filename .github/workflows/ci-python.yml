@@ -1,0 +1,56 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths: [ 'plugins/**', 'tests/python/**', 'requirements.txt' ]
+  pull_request:
+    branches: [ main, develop ]
+    paths: [ 'plugins/**', 'tests/python/**', 'requirements.txt' ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8 plugins/ tests/python/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 plugins/ tests/python/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    
+    - name: Test with pytest
+      run: |
+        python -m pytest tests/python/ -v --cov=plugins --cov-report=xml
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: python
+        name: python-coverage
+    
+    - name: Test Python plugins directly
+      run: |
+        echo '{"name": "string", "age": "number"}' | python plugins/official/ts_interface_gen.py
+        echo '{"user": {"name": "John", "age": 30}, "active": true}' | python plugins/official/ts_interface_gen.py

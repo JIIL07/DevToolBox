@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { GeneratorForm } from '../GeneratorForm';
@@ -42,7 +42,7 @@ describe('GeneratorForm', () => {
 
   it('generates code when form is submitted', async () => {
     const mockResponse = {
-      code: 'type GeneratedStruct struct {\n\tName string `json:"name"`\n}',
+      code: 'type GeneratedStruct struct { Name string }',
     };
 
     mockApiService.generateCode.mockResolvedValue(mockResponse);
@@ -54,11 +54,10 @@ describe('GeneratorForm', () => {
       expect(screen.getByDisplayValue('go-struct - Generate Go structures')).toBeInTheDocument();
     });
 
-    const textarea = screen.getByPlaceholderText('Enter your JSON data here...');
+    const textarea = screen.getByPlaceholderText('Enter your JSON data here...') as HTMLTextAreaElement;
     const generateButton = screen.getByRole('button', { name: /generate code/i });
 
-    await user.clear(textarea);
-    await user.type(textarea, '{"name": "test"}');
+    fireEvent.change(textarea, { target: { value: '{"name": "test"}' } });
     await user.click(generateButton);
 
     await waitFor(() => {
@@ -68,7 +67,7 @@ describe('GeneratorForm', () => {
       });
     });
 
-    expect(screen.getByText('type GeneratedStruct struct {')).toBeInTheDocument();
+    expect(screen.getByText('type GeneratedStruct struct { Name string }')).toBeInTheDocument();
   });
 
   it('shows error when generation fails', async () => {
@@ -105,7 +104,7 @@ describe('GeneratorForm', () => {
     const loadExampleButton = screen.getByRole('button', { name: /load example/i });
     await user.click(loadExampleButton);
 
-    const textarea = screen.getByPlaceholderText('Enter your JSON data here...');
-    expect(textarea).toHaveValue(expect.stringContaining('John Doe'));
+    const textarea = screen.getByPlaceholderText('Enter your JSON data here...') as HTMLTextAreaElement;
+    expect(textarea.value).toContain('John Doe');
   });
 });

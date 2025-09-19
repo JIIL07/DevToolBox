@@ -37,6 +37,10 @@ build-web: ## Собрать только веб-сервер
 	@go build -o bin/$(WEB_BINARY_NAME) ./cmd/web
 
 test: ## Запустить все тесты
+	@echo "$(GREEN)Запуск всех тестов...$(NC)"
+	@bash scripts/run-tests.sh
+
+test-all: ## Запустить все тесты (альтернативная команда)
 	@echo "$(GREEN)Запуск Go тестов...$(NC)"
 	@go test -v ./...
 	@echo "$(GREEN)Запуск фронтенд тестов...$(NC)"
